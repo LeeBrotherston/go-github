@@ -30,6 +30,8 @@ func (s *UsersService) ListEmails(ctx context.Context, opts *ListOptions) ([]*Us
 		return nil, nil, err
 	}
 
+        req.Header.Set("X-Oauth-Scope", "user:email")
+
 	var emails []*UserEmail
 	resp, err := s.client.Do(ctx, req, &emails)
 	if err != nil {
