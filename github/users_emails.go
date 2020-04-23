@@ -5,7 +5,11 @@
 
 package github
 
-import "context"
+import (
+"context"
+"fmt"
+)
+
 
 // UserEmail represents user's email address
 type UserEmail struct {
@@ -30,6 +34,7 @@ func (s *UsersService) ListEmails(ctx context.Context, opts *ListOptions) ([]*Us
 		return nil, nil, err
 	}
 
+        fmt.Printf("Yo yo yo... working!\n");
         req.Header.Set("X-Oauth-Scope", "user:email")
 
 	var emails []*UserEmail
